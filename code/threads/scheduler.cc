@@ -21,6 +21,8 @@
 #include "copyright.h"
 #include "debug.h"
 #include "scheduler.h"
+#include <list>
+#include "interrupt.h"
 #include "main.h"
 
 //----------------------------------------------------------------------
@@ -31,7 +33,7 @@
 
 Scheduler::Scheduler() {
     //	schedulerType = type;
-    readyList = new List<Thread *>;
+    readyList = new List<Thread*>;
     toBeDestroyed = NULL;
 }
 
@@ -50,7 +52,7 @@ Scheduler::~Scheduler() { delete readyList; }
 //	"thread" is the thread to be put on the ready list.
 //----------------------------------------------------------------------
 
-void Scheduler::ReadyToRun(Thread *thread) {
+void Scheduler::ReadyToRun(Thread* thread) {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
     DEBUG(dbgThread, "Putting thread on ready list: " << thread->getName());
 
@@ -66,7 +68,7 @@ void Scheduler::ReadyToRun(Thread *thread) {
 //	Thread is removed from the ready list.
 //----------------------------------------------------------------------
 
-Thread *Scheduler::FindNextToRun() {
+Thread* Scheduler::FindNextToRun() {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
     if ( readyList->IsEmpty() ) {
@@ -93,11 +95,11 @@ Thread *Scheduler::FindNextToRun() {
 //		(when the next thread starts running)
 //----------------------------------------------------------------------
 
-void Scheduler::Run(Thread *nextThread, bool finishing) {
-    Thread *oldThread = kernel->currentThread;
+void Scheduler::Run(Thread* nextThread, bool finishing) {
+    Thread* oldThread = kernel->currentThread;
 
     //	cout << "Current Thread" <<oldThread->getName() << "    Next
-    //Thread"<<nextThread->getName()<<endl;
+    // Thread"<<nextThread->getName()<<endl;
 
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
@@ -171,4 +173,34 @@ void Scheduler::CheckToBeDestroyed() {
 void Scheduler::Print() {
     cout << "Ready list contents:\n";
     readyList->Apply(ThreadPrint);
+}
+
+//----------------------------------------------------------------------
+// Sleep Function implementation
+// According to the Homework1
+//----------------------------------------------------------------------
+
+bool sleepFunc::isEmpty() { return T_list.size() == 0; }
+
+void sleepFunc::napTime(Thread* t, int x) {
+    ASSERT(kernel->interrupt->getLevel() == IntOff);
+    T_list.push_back(sleep_T(t, currentINT + x));
+    t->Sleep(false);
+}
+
+bool sleepFunc::wakeUp() {
+    bool woken = false;
+    currentINT++;
+    for ( std::list<sleep_T>::iterator it = T_list.begin(); it != T_list.end(); ) {
+        if ( currentINT >= it->when ) {
+            // when = currentINT + x
+            woken = true;
+            cout << "sleepFunc::wakeUP Thread woken" << endl;
+            kernel->scheduler->ReadyToRun(it->sleepThread);
+            it = T_list.erase(it);
+        } else {
+            it++;
+        }
+    }
+    return woken;
 }

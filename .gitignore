@@ -32,3 +32,7 @@ shell
 matmult
 sort
 test1
+
+# Claude Code (local only)
+/CLAUDE.md
+/AGENT.md

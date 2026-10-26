@@ -63,14 +63,15 @@ void ExceptionHandler(ExceptionType which) {
             val = kernel->machine->ReadRegister(4);
             cout << "Print integer:" << val << endl;
             return;
-        /*		case SC_Exec:
-                    DEBUG(dbgAddr, "Exec\n");
-                    val = kernel->machine->ReadRegister(4);
-                    kernel->StringCopy(tmpStr, retVal, 1024);
-                    cout << "Exec: " << val << endl;
-                    val = kernel->Exec(val);
-                    kernel->machine->WriteRegister(2, val);
-                    return;
+        /*
+        case SC_Exec:
+            DEBUG(dbgAddr, "Exec\n");
+            val = kernel->machine->ReadRegister(4);
+            kernel->StringCopy(tmpStr, retVal, 1024);
+            cout << "Exec: " << val << endl;
+            val = kernel->Exec(val);
+            kernel->machine->WriteRegister(2, val);
+            return;
         */
         case SC_Exit:
             DEBUG(dbgAddr, "Program exit\n");
@@ -78,6 +79,11 @@ void ExceptionHandler(ExceptionType which) {
             cout << "return value:" << val << endl;
             kernel->currentThread->Finish();
             break;
+        case SC_Sleep:
+            val = kernel->machine->ReadRegister(4);
+            cout << "Sleep Time: " << val << " (ms)" << endl;
+            kernel->alarm->WaitUntil(val);
+            return;
         default:
             cerr << "Unexpected system call " << type << "\n";
             break;

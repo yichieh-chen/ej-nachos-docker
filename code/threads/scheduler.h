@@ -9,6 +9,7 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
+#include <list>
 #include "copyright.h"
 #include "list.h"
 #include "thread.h"
@@ -21,6 +22,27 @@ enum SchedulerType {
     RR,  // Round Robin
     SJF,
     Priority
+};
+
+// Homework1 sleep SYSCALL implementation
+
+class sleepFunc {
+public:
+    sleepFunc() : currentINT(0) {};
+    void napTime(Thread* t, int x);
+    bool wakeUp();
+    bool isEmpty();
+
+private:
+    class sleep_T {
+    public:
+        sleep_T(Thread* t, int x) : sleepThread(t), when(x) {};
+        Thread* sleepThread;
+        int when;
+    };
+
+    int currentINT;
+    std::list<sleep_T> T_list;
 };
 
 class Scheduler {

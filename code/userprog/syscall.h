@@ -30,6 +30,7 @@
 #define SC_ThreadFork 9
 #define SC_ThreadYield 10
 #define SC_PrintInt 11
+#define SC_Sleep 12
 
 #ifndef IN_ASM
 
@@ -57,7 +58,7 @@ typedef int SpaceId;
 /* Run the executable, stored in the Nachos file "name", and return the
  * address space identifier
  */
-SpaceId Exec(char *name);
+SpaceId Exec(char* name);
 
 /* Only return once the the user program "id" has finished.
  * Return the exit status.
@@ -86,15 +87,15 @@ typedef int OpenFileId;
 #define ConsoleOutput 1
 
 /* Create a Nachos file, with "name" */
-void Create(char *name);
+void Create(char* name);
 
 /* Open the Nachos file "name", and return an "OpenFileId" that can
  * be used to read and write to the file.
  */
-OpenFileId Open(char *name);
+OpenFileId Open(char* name);
 
 /* Write "size" bytes from "buffer" to the open file. */
-void Write(char *buffer, int size, OpenFileId id);
+void Write(char* buffer, int size, OpenFileId id);
 
 /* Read "size" bytes from the open file into "buffer".
  * Return the number of bytes actually read -- if the open file isn't
@@ -102,7 +103,7 @@ void Write(char *buffer, int size, OpenFileId id);
  * characters to read, return whatever is available (for I/O devices,
  * you should always wait until you can return at least one character).
  */
-int Read(char *buffer, int size, OpenFileId id);
+int Read(char* buffer, int size, OpenFileId id);
 
 /* Close the file, we're done reading and writing to it. */
 void Close(OpenFileId id);
@@ -124,6 +125,9 @@ void ThreadFork(void (*func)());
 void ThreadYield();
 
 void PrintInt(int number);  // my System Call
-#endif                      /* IN_ASM */
+
+void Sleep(int msec);  // Sleep Sysyem Call for homework 1
+
+#endif /* IN_ASM */
 
 #endif /* SYSCALL_H */

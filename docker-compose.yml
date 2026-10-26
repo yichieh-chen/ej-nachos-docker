@@ -1,3 +1,5 @@
+name: nachos
+
 services:
   nachos:
     platform: linux/amd64

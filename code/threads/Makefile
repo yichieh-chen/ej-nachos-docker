@@ -821,8 +821,13 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  /usr/include/string.h /usr/include/strings.h ../lib/list.cc \
  ../machine/callback.h ../threads/main.h ../lib/debug.h \
  ../threads/kernel.h ../lib/utility.h ../threads/thread.h ../lib/sysdep.h \
- ../threads/scheduler.h ../machine/interrupt.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
+ ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
+ ../machine/timer.h
 stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/11/iostream \
@@ -1123,14 +1128,18 @@ timer.o: ../machine/timer.cc /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  /usr/include/string.h /usr/include/strings.h ../threads/kernel.h \
- ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h ../lib/list.h \
- ../lib/debug.h ../lib/list.cc ../machine/interrupt.h ../machine/stats.h \
+ ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h \
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../lib/list.h ../lib/debug.h \
+ ../lib/list.cc ../machine/interrupt.h ../machine/stats.h \
  ../threads/alarm.h ../machine/callback.h ../machine/timer.h
 alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/alarm.h ../lib/utility.h \
  ../lib/copyright.h ../machine/callback.h ../machine/timer.h \
- ../machine/callback.h ../threads/main.h ../lib/debug.h ../lib/utility.h \
- ../lib/sysdep.h /usr/include/c++/11/iostream \
+ ../machine/callback.h ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -1141,11 +1150,39 @@ alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/c++/11/ostream \
- /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
- /usr/include/c++/11/bits/stringfwd.h \
- /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
- /usr/include/c++/11/cwchar /usr/include/wchar.h \
+ /usr/include/c++/11/pstl/pstl_config.h \
+ /usr/include/c++/11/bits/functexcept.h \
+ /usr/include/c++/11/bits/exception_defines.h \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
+ /usr/include/c++/11/ext/type_traits.h \
+ /usr/include/c++/11/ext/numeric_traits.h \
+ /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/bits/move.h \
+ /usr/include/c++/11/type_traits \
+ /usr/include/c++/11/bits/stl_iterator_base_types.h \
+ /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/11/bits/concept_check.h \
+ /usr/include/c++/11/debug/assertions.h \
+ /usr/include/c++/11/bits/stl_iterator.h \
+ /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
+ /usr/include/c++/11/bits/predefined_ops.h \
+ /usr/include/c++/11/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+ /usr/include/c++/11/ext/new_allocator.h /usr/include/c++/11/new \
+ /usr/include/c++/11/bits/exception.h \
+ /usr/include/c++/11/bits/memoryfwd.h \
+ /usr/include/c++/11/bits/range_access.h \
+ /usr/include/c++/11/initializer_list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/ext/alloc_traits.h \
+ /usr/include/c++/11/bits/alloc_traits.h \
+ /usr/include/c++/11/bits/stl_construct.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../lib/list.h ../lib/debug.h \
+ ../lib/utility.h ../lib/sysdep.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/ostream /usr/include/c++/11/ios \
+ /usr/include/c++/11/iosfwd /usr/include/c++/11/bits/stringfwd.h \
+ /usr/include/c++/11/bits/postypes.h /usr/include/c++/11/cwchar \
+ /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -1159,28 +1196,11 @@ alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/11/exception /usr/include/c++/11/bits/exception.h \
- /usr/include/c++/11/bits/exception_ptr.h \
- /usr/include/c++/11/bits/exception_defines.h \
+ /usr/include/c++/11/exception /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \
  /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/hash_bytes.h \
- /usr/include/c++/11/new /usr/include/c++/11/bits/move.h \
- /usr/include/c++/11/type_traits \
  /usr/include/c++/11/bits/nested_exception.h \
- /usr/include/c++/11/bits/char_traits.h \
- /usr/include/c++/11/bits/stl_algobase.h \
- /usr/include/c++/11/bits/functexcept.h \
- /usr/include/c++/11/bits/cpp_type_traits.h \
- /usr/include/c++/11/ext/type_traits.h \
- /usr/include/c++/11/ext/numeric_traits.h \
- /usr/include/c++/11/bits/stl_pair.h \
- /usr/include/c++/11/bits/stl_iterator_base_types.h \
- /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/11/bits/concept_check.h \
- /usr/include/c++/11/debug/assertions.h \
- /usr/include/c++/11/bits/stl_iterator.h \
- /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
- /usr/include/c++/11/bits/predefined_ops.h /usr/include/c++/11/cstdint \
+ /usr/include/c++/11/bits/char_traits.h /usr/include/c++/11/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -1223,19 +1243,11 @@ alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
  /usr/include/c++/11/bits/locale_classes.h /usr/include/c++/11/string \
- /usr/include/c++/11/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
- /usr/include/c++/11/ext/new_allocator.h \
  /usr/include/c++/11/bits/ostream_insert.h \
  /usr/include/c++/11/bits/cxxabi_forced.h \
  /usr/include/c++/11/bits/stl_function.h \
  /usr/include/c++/11/backward/binders.h \
- /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/initializer_list \
- /usr/include/c++/11/bits/basic_string.h \
- /usr/include/c++/11/ext/alloc_traits.h \
- /usr/include/c++/11/bits/alloc_traits.h \
- /usr/include/c++/11/bits/stl_construct.h /usr/include/c++/11/string_view \
+ /usr/include/c++/11/bits/basic_string.h /usr/include/c++/11/string_view \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/string_view.tcc \
  /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdlib \
@@ -1276,9 +1288,9 @@ alarm.o: ../threads/alarm.cc /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
- /usr/include/string.h /usr/include/strings.h ../threads/kernel.h \
- ../threads/thread.h ../lib/sysdep.h ../threads/scheduler.h ../lib/list.h \
- ../lib/debug.h ../lib/list.cc ../machine/interrupt.h ../machine/stats.h
+ /usr/include/string.h /usr/include/strings.h ../lib/list.cc \
+ ../threads/thread.h ../lib/sysdep.h ../machine/interrupt.h \
+ ../threads/main.h ../lib/debug.h ../threads/kernel.h ../machine/stats.h
 kernel.o: ../threads/kernel.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/11/iostream \
@@ -1429,11 +1441,15 @@ kernel.o: ../threads/kernel.cc /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  /usr/include/string.h /usr/include/strings.h ../threads/main.h \
  ../threads/kernel.h ../lib/utility.h ../threads/thread.h ../lib/sysdep.h \
- ../threads/scheduler.h ../lib/list.h ../lib/debug.h ../lib/list.cc \
- ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
- ../threads/synch.h ../threads/synchlist.h ../threads/synchlist.cc \
- ../lib/libtest.h ../machine/elevatortest.h
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../lib/list.h ../lib/debug.h \
+ ../lib/list.cc ../machine/interrupt.h ../machine/callback.h \
+ ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
+ ../machine/timer.h ../threads/synch.h ../threads/synchlist.h \
+ ../threads/synchlist.cc ../lib/libtest.h ../machine/elevatortest.h
 main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
  ../threads/main.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/11/iostream \
@@ -1584,9 +1600,14 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h ../lib/copyright.h \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  /usr/include/string.h /usr/include/strings.h ../threads/kernel.h \
  ../lib/utility.h ../threads/thread.h ../lib/sysdep.h \
- ../threads/scheduler.h ../lib/list.h ../lib/debug.h ../lib/list.cc \
- ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../lib/list.h ../lib/debug.h \
+ ../lib/list.cc ../machine/interrupt.h ../machine/callback.h \
+ ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
+ ../machine/timer.h
 scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/11/iostream \
@@ -1736,10 +1757,14 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  /usr/include/string.h /usr/include/strings.h ../threads/scheduler.h \
- ../lib/list.h ../lib/debug.h ../lib/list.cc ../threads/thread.h \
- ../lib/utility.h ../lib/sysdep.h ../threads/main.h ../threads/kernel.h \
- ../machine/interrupt.h ../machine/callback.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../lib/list.h ../lib/debug.h \
+ ../lib/list.cc ../threads/thread.h ../lib/utility.h ../lib/sysdep.h \
+ ../machine/interrupt.h ../machine/callback.h ../threads/main.h \
+ ../threads/kernel.h ../machine/stats.h ../threads/alarm.h \
+ ../machine/callback.h ../machine/timer.h
 synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/synch.h ../threads/thread.h \
  ../lib/utility.h ../lib/copyright.h ../lib/sysdep.h \
@@ -1892,9 +1917,13 @@ synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  /usr/include/string.h /usr/include/strings.h ../lib/list.h \
  ../lib/debug.h ../lib/utility.h ../lib/sysdep.h ../lib/list.cc \
  ../threads/main.h ../lib/debug.h ../threads/kernel.h \
- ../threads/scheduler.h ../machine/interrupt.h ../machine/callback.h \
- ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
- ../machine/timer.h
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
+ ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
+ ../machine/callback.h ../machine/timer.h
 synchlist.o: ../threads/synchlist.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/synchlist.h ../lib/list.h \
  ../lib/copyright.h ../lib/debug.h ../lib/utility.h ../lib/sysdep.h \
@@ -2047,9 +2076,13 @@ synchlist.o: ../threads/synchlist.cc /usr/include/stdc-predef.h \
  /usr/include/string.h /usr/include/strings.h ../lib/list.cc \
  ../threads/synch.h ../threads/thread.h ../lib/utility.h ../lib/sysdep.h \
  ../threads/main.h ../lib/debug.h ../threads/kernel.h \
- ../threads/scheduler.h ../machine/interrupt.h ../machine/callback.h \
- ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
- ../machine/timer.h ../threads/synchlist.cc
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
+ ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
+ ../machine/callback.h ../machine/timer.h ../threads/synchlist.cc
 thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../threads/thread.h ../lib/utility.h \
  ../lib/copyright.h ../lib/sysdep.h /usr/include/c++/11/iostream \
@@ -2201,7 +2234,11 @@ thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  /usr/include/string.h /usr/include/strings.h ../threads/switch.h \
  ../threads/synch.h ../lib/list.h ../lib/debug.h ../lib/utility.h \
  ../lib/sysdep.h ../lib/list.cc ../threads/main.h ../lib/debug.h \
- ../threads/kernel.h ../threads/scheduler.h ../machine/interrupt.h \
+ ../threads/kernel.h ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
  ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
  ../machine/callback.h ../machine/timer.h
 elevatortest.o: ../machine/elevatortest.cc /usr/include/stdc-predef.h \
@@ -2357,8 +2394,12 @@ elevatortest.o: ../machine/elevatortest.cc /usr/include/stdc-predef.h \
  /usr/include/string.h /usr/include/strings.h ../lib/list.cc \
  ../threads/synch.h ../threads/thread.h ../lib/sysdep.h ../threads/main.h \
  ../lib/debug.h ../threads/kernel.h ../threads/scheduler.h \
- ../machine/interrupt.h ../machine/stats.h ../threads/alarm.h \
- ../machine/callback.h ../machine/timer.h ../threads/thread.h
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
+ ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
+ ../machine/timer.h ../threads/thread.h
 elevator.o: ../machine/elevator.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../machine/elevator.h ../lib/utility.h \
  ../lib/copyright.h ../machine/callback.h ../lib/list.h ../lib/debug.h \
@@ -2510,9 +2551,13 @@ elevator.o: ../machine/elevator.cc /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/stdlib.h \
  /usr/include/string.h /usr/include/strings.h ../lib/list.cc \
  ../threads/kernel.h ../lib/debug.h ../threads/thread.h ../lib/sysdep.h \
- ../threads/scheduler.h ../machine/interrupt.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
- ../threads/main.h ../threads/kernel.h
+ ../threads/scheduler.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc ../machine/interrupt.h \
+ ../machine/stats.h ../threads/alarm.h ../machine/callback.h \
+ ../machine/timer.h ../threads/main.h ../threads/kernel.h
 # DEPENDENCIES MUST END AT END OF FILE
 # IF YOU PUT STUFF HERE IT WILL GO AWAY
 # see make depend above

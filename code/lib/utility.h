@@ -17,8 +17,10 @@
 #define FALSE false
 // #define bool int		// necessary on the Mac?
 
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-#define max(a, b) (((a) > (b)) ? (a) : (b))
+// NOTE: 原本這裡有 min/max 巨集，會污染現代 libstdc++ 的 <string_view>：
+//   std::min(...) 被展開成 std::(((a) < (b)) ? ...) → expected unqualified-id
+// 這兩個巨集在 NachOS 程式碼中沒有被使用，因此移除；
+// 若之後需要，請用 std::min / std::max。
 
 // Divide and either round up or down
 #define divRoundDown(n, s) ((n) / (s))

@@ -1,0 +1,8 @@
+# 依據 clangd 官方文件：
+#   https://clangd.llvm.org/config#remove
+# 這份編譯資料庫是在容器的 32 位元環境產生的，主機沒有 32 位元標頭，
+# 因此移除 -m32，讓 clangd 用主機的 64 位元標頭做語意分析。
+CompileFlags:
+  Remove:
+    - -m32
+    - -march=*
