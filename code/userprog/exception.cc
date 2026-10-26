@@ -47,6 +47,9 @@
 //	"which" is the kind of exception.  The list of possible exceptions
 //	are in machine.h.
 //----------------------------------------------------------------------
+//
+
+#define STUDENT_ID_DIGITS 11330003
 
 void ExceptionHandler(ExceptionType which) {
     int type = kernel->machine->ReadRegister(2);
@@ -83,6 +86,31 @@ void ExceptionHandler(ExceptionType which) {
             val = kernel->machine->ReadRegister(4);
             cout << "Sleep Time: " << val << " (ms)" << endl;
             kernel->alarm->WaitUntil(val);
+            return;
+        case SC_Add:
+            val = kernel->machine->ReadRegister(4) + kernel->machine->ReadRegister(5);
+            kernel->machine->WriteRegister(2, val);
+            return;
+        case SC_Sub:
+            val = kernel->machine->ReadRegister(4) - kernel->machine->ReadRegister(5);
+            kernel->machine->WriteRegister(2, val);
+            return;
+        case SC_Mul:
+            val = kernel->machine->ReadRegister(4) * kernel->machine->ReadRegister(5);
+            kernel->machine->WriteRegister(2, val);
+            return;
+        case SC_Div:
+            if ( kernel->machine->ReadRegister(5) == 0 ) {
+                cout << "Error: Divide by zero" << endl;
+                val = STUDENT_ID_DIGITS;
+            } else {
+                val = kernel->machine->ReadRegister(4) / kernel->machine->ReadRegister(5);
+            }
+            kernel->machine->WriteRegister(2, val);
+            return;
+        case SC_Mod:
+            val = kernel->machine->ReadRegister(4) % kernel->machine->ReadRegister(5);
+            kernel->machine->WriteRegister(2, val);
             return;
         default:
             cerr << "Unexpected system call " << type << "\n";
